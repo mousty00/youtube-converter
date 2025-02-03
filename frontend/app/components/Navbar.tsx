@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex items-center justify-between p-4 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50">
+    <div className="flex items-center justify-between py-4 px-8 backdrop-blur-lg shadow-sm fixed top-0 left-0 right-0 z-50">
       <Link href={"/"}>
         <Image
           src="/logo.svg"
@@ -24,15 +24,15 @@ const Navbar = () => {
       </Link>
 
       <nav>
-        <ul className="flex space-x-8">
+        <ul className="flex space-x-8 items-center p-4 rounded-full">
           <li>
             <Link
               href="/"
               onClick={() => handleLinkClick("/")}
-              className={`relative text-gray-300 hover:text-purple transition-colors duration-300 ${
+              className={`relative hover:text-purpleCustom transition-colors duration-300 my-2 mx-0 ${
                 activeLink === "/"
-                  ? "text-pink font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:rounded-full"
-                  : ""
+                  ? "text-white bg-neutral-950 py-4 px-6 rounded-full  font-semibold text-lg after:absolute after:bottom-0 after:left-0 after:w-full after:h-1"
+                  : "text-gray-200"
               }`}
             >
               Home
@@ -42,10 +42,10 @@ const Navbar = () => {
             <Link
               href="/converter"
               onClick={() => handleLinkClick("/converter")}
-              className={`relative text-gray-300 hover:text-purple transition-colors duration-300 ${
+              className={`relative hover:text-purpleCustom  transition-colors duration-300 ${
                 activeLink === "/converter"
-                  ? "text-pink font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:rounded-full"
-                  : ""
+                  ? "text-white  bg-neutral-950 py-4 px-6 rounded-full font-semibold text-lg after:absolute after:bottom-0 after:left-0 after:w-full after:h-1"
+                  : "text-gray-200"
               }`}
             >
               Converter
@@ -53,6 +53,34 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
+
+      {/*
+          this is the login section, i will implent it in the future
+          <div>
+            {loggedIn ? (
+              <Link
+                href={"/profile"}
+                className="flex flex-row gap-2 items-center justify-center"
+              >
+                <Image
+                  width={40}
+                  height={40}
+                  alt="profile picture"
+                  src={"/logo.svg"}
+                  className="rounded-full border aspect-square"
+                />
+                <p>Profile</p>
+              </Link>
+            ) : (
+              <Link
+                href={"/login"}
+                className="py-2 px-6 bg-purpleCustom uppercase rounded-lg"
+              >
+                Login
+              </Link>
+            )}
+          </div>
+        */}
     </div>
   );
 };

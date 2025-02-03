@@ -16,13 +16,16 @@ class ConvertVideoJob implements ShouldQueue
 
     protected $url;
 
+    protected $format;
+
     protected $videoId;
 
     protected $videoTitle;
 
-    public function __construct($url, $videoId, $videoTitle)
+    public function __construct($url, $format, $videoId, $videoTitle)
     {
         $this->url = $url;
+        $this->format = $format;
         $this->videoId = $videoId;
         $this->videoTitle = $videoTitle;
     }

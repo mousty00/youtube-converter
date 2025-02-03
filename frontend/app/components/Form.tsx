@@ -165,14 +165,14 @@ export default function Form({
         type="text"
         placeholder="YouTube video URL here..."
         {...register("youtubeUrl")}
-        className="w-full bg-neutral-950 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+        className="w-full bg-neutral-950 text-center px-4 py-2 rounded-lg focus:outline-none"
         value={youtubeUrl}
         onChange={(e) => setYoutubeUrl(e.target.value)}
       />
       {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
       <div className="flex space-x-4">
         <select
-          className="flex-1 px-4 bg-indigo-600 py-2 text-center rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+          className="flex-1 px-4 bg-purpleCustom py-2 text-center rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
           value={selectedFormat}
           onChange={handleSelectedFormat}
         >
@@ -182,7 +182,7 @@ export default function Form({
 
         <button
           type="submit"
-          className="flex items-center w-[50%] justify-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-600 disabled:cursor-not-allowed transition-colors"
+          className="flex items-center w-[50%] justify-center px-4 py-2 bg-purpleCustom text-white rounded-lg hover:bg-indigo-600 disabled:cursor-not-allowed transition-colors"
           disabled={buttonDisabled}
         >
           {isAdding ? (

@@ -34,9 +34,9 @@ export default function MainApp() {
   }, []);
 
   const titleText = useMemo(() => {
-    if (loading) return "Loading...";
-    if (isConverted) {
-      return isDownloaded ? "Downloaded!" : "Downloading...";
+    if(loading) return "Loading..."
+    if (isConverted && isDownloaded) {
+      return "Downloaded!";
     }
     return (
       <div className="w-72">
@@ -102,7 +102,7 @@ export default function MainApp() {
           )}
         </div>
       ) : (
-        <Loader className="w-24 h-24 mx-auto" />
+        <Loader />
       )}
       {isConverted && isDownloaded && (
         <div className="mt-8 flex flex-col items-center">
