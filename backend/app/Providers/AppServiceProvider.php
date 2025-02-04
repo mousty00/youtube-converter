@@ -2,23 +2,26 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use App\Events\VideoConverted;
+use App\Listeners\SendConversionResponse;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * @var array
      */
-    public function register(): void
-    {
-        //
-    }
+    protected $listen = [
+        VideoConverted::class => [
+            SendConversionResponse::class,
+        ],
+    ];
 
     /**
-     * Bootstrap any application services.
+     * @return void
      */
-    public function boot(): void
+    public function boot()
     {
-        //
+        parent::boot();
     }
 }

@@ -63,6 +63,7 @@ export default function Form({
   const handleSelectedFormat = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedFormat(e.target.value);
   };
+  
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     const { youtubeUrl } = data;
@@ -94,6 +95,8 @@ export default function Form({
         videoTitle: videoData.videoTitle,
         filepath: videoData.filePath,
       });
+ 
+      console.log(`file converted: ${JSON.stringify(videoData)}`);
 
       const { data: responseData } = await axios.post<Blob>(
         `${SERVER_URL}/api/download`,

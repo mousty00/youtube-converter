@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ConvertVideo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
@@ -35,6 +36,8 @@ class YouTubeController
         if (File::exists($filepath)) {
             return response()->download($filepath);
         } else {
+            Log::error('File not found: '.$filepath);
+
             return response()->json(['error' => 'File not found'], Response::HTTP_NOT_FOUND);
         }
     }
@@ -168,27 +171,14 @@ class YouTubeController
     {
         $url = $request->input('url');
         $format = $request->input('format');
+        $downloadFolder = $this->downloadFolder;
 
         if (! $url || ! $format) {
             return response()->json(['error' => 'Invalid or missing URL or format'], Response::HTTP_BAD_REQUEST);
         }
 
-        $videoId = $this->extractVideoIdFromUrl($url);
-
-        if (! $videoId) {
-            return response()->json(['error' => 'Invalid YouTube URL'], Response::HTTP_BAD_REQUEST);
-        }
-
-        $videoTitle = shell_exec("yt-dlp --get-title \"$url\"");
-        $videoTitle = trim($videoTitle);
-
-        if (empty($videoTitle)) {
-            $videoTitle = $videoId;
-        }
-
         try {
-            ConvertVideoJob::dispatch($url,$format,$videoId,$videoTitle);
-            return response()->json("");
+            ConvertVideo::dispatch($url, $format, $downloadFolder);
 
         } catch (\Exception $e) {
             return response()->json(['error' => 'Failed to dispatch conversion job'], Response::HTTP_INTERNAL_SERVER_ERROR);
