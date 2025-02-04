@@ -4,17 +4,18 @@ import { FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="bg-neutral-950 text-white py-8 px-4 flex flex-col items-center rounded-t-[20%]">
+    <div className="bg-background2 text-foreground py-8 px-4 flex flex-col items-center rounded-t-[20%]">
+      <div className="flex flex-1 items-center gap-4">
       <div className="flex justify-center gap-4 items-center">
         <p className="text-right text-lg font-semibold m-4">
-          Website developed <br />{" "}
-          <span className="text-purpleCustom text-xl">by Mousty</span>
+          Website Developed <br />{" "}
+          <span className="text-purpleCustom text-xl">By Moustapha</span>
         </p>
         <Link href={"/about"}>
         <Image
           src={"/picture-dev.jpg"}
-          width={60}
-          height={60}
+          width={80}
+          height={80}
           alt="developer picture"
           className="rounded-full cursor-pointer border-4 border-purpleCustom hover:border-8 transition duration-200"
         />
@@ -46,6 +47,7 @@ const Footer = () => {
           </a>
         </li>
       </ul>
+      </div>
       <div className="mt-4">
         <Link
           href="/privacy-policy"

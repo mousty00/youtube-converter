@@ -34,7 +34,7 @@ export default function MainApp() {
   }, []);
 
   const titleText = useMemo(() => {
-    if(loading) return "Loading..."
+    if(loading) return "Loading"
     if (isConverted && isDownloaded) {
       return "Downloaded!";
     }
@@ -80,7 +80,7 @@ export default function MainApp() {
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center py-10 px-4">
-      <h1 className="text-3xl font-bold text-center mb-8">{titleText}</h1>
+      <h1 className="text-6xl font-bold text-center mb-8">{titleText}</h1>
       {!loading ? (
         <div hidden={isDownloaded} className="w-full">
           <Form

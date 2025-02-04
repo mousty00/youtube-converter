@@ -10,7 +10,7 @@ export default function Card({
     icon: JSX.Element;
   }>) {
     return (
-      <div className="p-6 rounded-lg shadow-md border border-neutral-800 h-full">
+      <div className="p-6 rounded-lg shadow-md h-full">
         <div className="flex flex-row text-center gap-4 items-center">
           {icon && icon} 
           <h2 className="text-xl font-semibold mb-4 my-auto">{title}</h2> 

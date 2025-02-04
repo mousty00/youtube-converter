@@ -13,14 +13,12 @@ export default function HomePage() {
             layout="intrinsic"
           />
         </div>
-        <h1 className="text-4xl font-bold mt-8 mb-4 text-gray-50">
+        <h1 className="text-4xl font-bold mt-8 mb-4 text-foreground">
           Welcome to our website!
         </h1>
-        <div className="text-center text-gray-300">
+        <div className="text-center text-foreground">
           <p>
-            We make it easy to convert YouTube videos into high-quality MP3 audio files.
-            <br />
-            Whether you are looking to save your favorite music, podcasts, or any
+            Whether you are looking to save your favorite music, or any
             other content, <br /> our platform ensures the best possible sound
             quality for your conversions.
             <br />

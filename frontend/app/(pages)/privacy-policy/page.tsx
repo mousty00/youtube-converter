@@ -47,7 +47,7 @@ const policies: Policy[] = [
 export default function PrivacyPolicyPage() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-4 mt-20 w-[80%] mx-auto">
-      <h1 className="text-4xl font-bold text-center text-gray-300 mb-8">
+      <h1 className="text-5xl font-bold text-center mb-8">
         Privacy Policy
       </h1>
 
@@ -72,7 +72,7 @@ export default function PrivacyPolicyPage() {
         }
       </div>
 
-      <div className="p-6 rounded-lg shadow-md text-center">
+      <div className="p-6 text-center">
         <h2 className="text-xl font-semibold  mb-4 ">Contact Us</h2>
         <p>
           If you have any questions or concerns about this Privacy Policy or

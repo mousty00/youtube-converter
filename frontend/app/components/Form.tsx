@@ -162,20 +162,20 @@ export default function Form({
   return (
     <form
       onSubmit={isAdding ? handleSubmit(addVideos) : handleSubmit(onSubmit)}
-      className="flex flex-col space-y-4 w-full max-w-md mx-auto p-6 rounded-lg shadow-md"
+      className="flex flex-col space-y-4 w-full max-w-md mx-auto p-6"
     >
       <input
         type="text"
         placeholder="YouTube video URL here..."
         {...register("youtubeUrl")}
-        className="w-full bg-neutral-950 text-center px-4 py-2 rounded-lg focus:outline-none"
+        className="w-full bg-background2 text-center px-4 py-2 rounded-lg focus:outline-none"
         value={youtubeUrl}
         onChange={(e) => setYoutubeUrl(e.target.value)}
       />
       {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
       <div className="flex space-x-4">
         <select
-          className="flex-1 px-4 bg-purpleCustom py-2 text-center rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+          className="flex-1 px-4 bg-purpleCustom py-2 text-center text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
           value={selectedFormat}
           onChange={handleSelectedFormat}
         >
